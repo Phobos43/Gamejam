@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://du76e0mrphas"]
+
+[ext_resource type="Texture2D" uid="uid://d2otp8rst178n" path="res://Art/Black square.png" id="1_r8lt8"]
+[ext_resource type="Texture2D" uid="uid://i8vc3tjx2bld" path="res://Art/White square.png" id="2_0xttq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyu8x"]
+size = Vector2(312, 314)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7we8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r8lt8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0xttq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Level_End" type="Area2D" unique_id=2121519421]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1625318550]
+shape = SubResource("RectangleShape2D_gyu8x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=785566094]
+scale = Vector2(1.5625, 1.5625)
+sprite_frames = SubResource("SpriteFrames_s7we8")
+autoplay = "default"
+frame = 1
