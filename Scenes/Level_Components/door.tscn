@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cha3lljy17bfp"]
+
+[ext_resource type="Script" uid="uid://dv2imw0ti2ll" path="res://Scripts/DoorManager.gd" id="1_syxjc"]
+
+[node name="Door" type="StaticBody2D" unique_id=1267935751]
+script = ExtResource("1_syxjc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=554495032]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=278942804]

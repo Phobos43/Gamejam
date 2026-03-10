@@ -17,3 +17,5 @@ shape = SubResource("RectangleShape2D_vgqql")
 position = Vector2(0, -51)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_6t5aa")
+
+[node name="Node" type="Node" parent="." unique_id=470459729]
