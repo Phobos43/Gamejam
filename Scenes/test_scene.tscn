@@ -402,10 +402,10 @@ modulate = Color(0.26666668, 0.6666667, 0, 1)
 texture = ExtResource("1_r5l72")
 
 [node name="Shadow" type="CharacterBody2D" parent="." unique_id=1276480087]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Shadow" unique_id=1816607338]
 modulate = Color(1, 1, 1, 0.53333336)
+position = Vector2(0, -51)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_r5l72")
 

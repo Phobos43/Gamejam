@@ -19,6 +19,7 @@ var pressing_plate = false
 
 class player_state:
 	var position : Vector2
+	var player_scale : Vector2
 	var door_pos : Vector2
 
 
@@ -39,6 +40,7 @@ func _process(delta: float) -> void:
 		var new_state = player_state.new()
 		new_state.position = player.position
 		new_state.door_pos = door.position
+		new_state.player_scale = player.scale
 		player_playback.append(new_state)
 		
 	level_end.rotate(2*PI*delta)
@@ -59,6 +61,7 @@ func _process(delta: float) -> void:
 		if playback_frame < len(player_playback):
 			shadow.show()
 			shadow.position = player_playback[playback_frame].position
+			shadow.scale = player_playback[playback_frame].player_scale
 			playback_frame += 1
 		else:
 			shadow.hide()
