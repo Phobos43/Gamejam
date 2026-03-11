@@ -2,6 +2,7 @@
 extends StaticBody2D
 
 @export var sprite : Texture2D
+@export var sprite_scale : int
 var platform_size : Vector2
 
 func _ready() -> void:
