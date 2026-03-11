@@ -155,3 +155,4 @@ sprite = ExtResource("1_u57gy")
 [node name="Door" parent="." unique_id=1267935751 instance=ExtResource("5_mc3sl")]
 position = Vector2(749, 567)
 sprite = ExtResource("6_u51cp")
+sprite_scale = 3
