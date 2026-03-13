@@ -24,6 +24,17 @@ window/stretch/mode="viewport"
 
 movie_writer/movie_file="/Users/julien/GodotProjects/Gamejam/prototype.avi"
 
+[file_customization]
+
+folder_colors={
+"res://Scenes/": "yellow",
+"res://Scenes/Level_Components/": "red"
+}
+
+[global_group]
+
+"Dynamic Components"="Components that perform something when triggered by a group"
+
 [gui]
 
 timers/tooltip_delay_sec=0.0

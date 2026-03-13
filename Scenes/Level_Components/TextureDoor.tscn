@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://c7mneuieqaa04"]
 
-[ext_resource type="Script" uid="uid://c3qsw6lgprj1w" path="res://Scripts/DoorManager.gd" id="1_rfyw3"]
+[ext_resource type="Script" uid="uid://c3qsw6lgprj1w" path="res://Scripts/LevelScripts/DoorManager.gd" id="1_rfyw3"]
 
-[node name="TexturePlatform" type="StaticBody2D" unique_id=1267935751]
+[node name="TextureDoor" type="StaticBody2D" unique_id=1267935751 groups=["Dynamic Components"]]
 script = ExtResource("1_rfyw3")
+initial_position = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=554495032]
 
