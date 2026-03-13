@@ -24,7 +24,7 @@ enum Positionset {
 func _ready() -> void:
 	refresh($CollisionShape2D)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if set_positions == Positionset.None:
 		if toggled:
 			movement_to(toggled_position)

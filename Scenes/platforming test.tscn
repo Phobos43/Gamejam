@@ -135,7 +135,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAgAAAAEAAAAAAAEAAgAAAAEAAAAAAAIAAgAAAAE
 tile_set = SubResource("TileSet_ak5v8")
 
 [node name="Player" parent="." unique_id=2009888759 instance=ExtResource("3_4141e")]
-position = Vector2(90, 90)
+position = Vector2(92, 134)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1779311683]
 anchor_mode = 0
@@ -156,17 +156,32 @@ position = Vector2(785, 571)
 sprite = ExtResource("10_u5bkg")
 sprite_scale = 2.34
 
-[node name="TexturePlate" parent="." unique_id=774278610 instance=ExtResource("7_dbjo0")]
-position = Vector2(89, 793)
-group_id_activation = 1
-sprite = ExtResource("8_mc3sl")
-sprite_scale = 0.37
-
-[node name="TexturePlatform3" parent="." unique_id=1261606955 instance=ExtResource("9_3hbtn")]
-position = Vector2(1075, 801.99976)
+[node name="TextureDoor" parent="." unique_id=964438886 instance=ExtResource("9_3hbtn")]
+position = Vector2(1073.0005, 798.99976)
 group_id_activation = 1
 easing_mode = 2
-toggled_position = Vector2(1075, 670)
-initial_position = Vector2(1075, 802)
+toggled_position = Vector2(1075, 666)
+initial_position = Vector2(1073, 799)
 sprite = ExtResource("2_u51cp")
-sprite_scale = 0.645
+sprite_scale = 0.675
+
+[node name="TextureDoor2" parent="." unique_id=1718401157 instance=ExtResource("9_3hbtn")]
+position = Vector2(1179.0005, 541.99976)
+group_id_activation = 2
+easing_mode = 2
+toggled_position = Vector2(1408, 220)
+initial_position = Vector2(1179, 542)
+sprite = ExtResource("10_u5bkg")
+sprite_scale = 1.83
+
+[node name="TexturePlate" parent="." unique_id=774278610 instance=ExtResource("7_dbjo0")]
+position = Vector2(44, 761)
+group_id_activation = 1
+sprite = ExtResource("8_mc3sl")
+sprite_scale = 0.26
+
+[node name="TexturePlate2" parent="." unique_id=178239541 instance=ExtResource("7_dbjo0")]
+position = Vector2(1072, 506)
+group_id_activation = 2
+sprite = ExtResource("8_mc3sl")
+sprite_scale = 0.305
