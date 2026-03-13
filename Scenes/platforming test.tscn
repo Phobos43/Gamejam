@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d2otp8rst178n" path="res://Art/Black square.png" id="2_u51cp"]
 [ext_resource type="PackedScene" uid="uid://djjam0upfakha" path="res://Scenes/player.tscn" id="3_4141e"]
 [ext_resource type="PackedScene" uid="uid://du76e0mrphas" path="res://Scenes/level_end.tscn" id="4_dbjo0"]
-[ext_resource type="PackedScene" uid="uid://cha3lljy17bfp" path="res://Scenes/Level_Components/door.tscn" id="5_mc3sl"]
+[ext_resource type="PackedScene" uid="uid://cha3lljy17bfp" path="res://Scenes/Level_Components/TexturePlatform.tscn" id="5_mc3sl"]
 [ext_resource type="Texture2D" uid="uid://d6f80cfcc1s5" path="res://cardboard platform.png" id="6_u51cp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r5l72"]
@@ -151,6 +151,7 @@ sprite = ExtResource("1_u57gy")
 [node name="Door3" parent="." unique_id=2135089766 instance=ExtResource("5_mc3sl")]
 position = Vector2(1065, 446)
 sprite = ExtResource("1_u57gy")
+sprite_scale = 1
 
 [node name="Door" parent="." unique_id=1267935751 instance=ExtResource("5_mc3sl")]
 position = Vector2(749, 567)
