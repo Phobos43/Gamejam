@@ -2,4 +2,4 @@
 extends TextureComponent
 
 func _ready() -> void:
-	refresh()
+	refresh($CollisionShape2D)
