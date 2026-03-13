@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bashhxe21wp60"]
 
+[ext_resource type="Script" uid="uid://dec4tprcxsyvb" path="res://Scripts/DoorManager.gd" id="1_rfyw3"]
+
 [node name="TexturePlatform" type="StaticBody2D" unique_id=1267935751]
+script = ExtResource("1_rfyw3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=554495032]
 
