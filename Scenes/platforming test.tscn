@@ -177,15 +177,16 @@ initial_position = Vector2(1178, 541.3)
 sprite = ExtResource("10_u5bkg")
 sprite_scale = 1.83
 
-[node name="TextureButton" parent="." unique_id=774278610 instance=ExtResource("10_3hbtn")]
-position = Vector2(65, 749)
-group_id_activation = 1
-activation_time = 2.0
-sprite = ExtResource("8_mc3sl")
-sprite_scale = 0.3
-
 [node name="TexturePlate" parent="." unique_id=1216968646 instance=ExtResource("7_dbjo0")]
-position = Vector2(1068, 513)
+position = Vector2(1070, 516)
 group_id_activation = 2
+activation_time = 4.0
 sprite = ExtResource("8_mc3sl")
 sprite_scale = 0.33
+
+[node name="TextureButton" parent="." unique_id=774278610 instance=ExtResource("10_3hbtn")]
+position = Vector2(52, 749)
+group_id_activation = 1
+activation_time = 3.0
+sprite = ExtResource("8_mc3sl")
+sprite_scale = 0.2

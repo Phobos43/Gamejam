@@ -21,20 +21,20 @@ class WorldState:
 	var group_id_status : Dictionary[int, bool]	
 
 func _ready() -> void:
-	# Find the player in the tree
 	for node in get_children():
+		# Find the player in the tree
 		if node is Player:
 			player = node
+		
+		# Connect activator node signals to the function
 		elif node.has_signal("activated"):
 			node.activated.connect(signal_activated)
 	
 	# Create and prepare a shadow
 	shadow = load("res://Scenes/shadow.tscn").instantiate()
 	shadow.hide()
-	
-	
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not is_player_dead:
 		
 		var p_state = PlayerState.new()
@@ -46,11 +46,15 @@ func _physics_process(delta: float) -> void:
 		state.player_state = p_state
 
 func signal_activated(group_id, activation_time) -> void:
+	# activation_time = -1 indicates an "off" request
 	if activation_time == -1:
 		signal_off(group_id)
 		return
+	
+	# activation_time = 0 is an indefinite time 
 	elif activation_time != 0:
 		get_tree().create_timer(activation_time, false).timeout.connect(signal_off.bind(group_id))
+	
 	for node in get_tree().get_nodes_in_group("Dynamic Components"):
 		if node.group_id_activation == group_id:
 			node.toggled = true

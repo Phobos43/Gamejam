@@ -23,7 +23,21 @@ var is_crouched = false
 var coyote_time = COYOTE_TIME
 var jump_buffer = JUMP_BUFFER
 
+var is_op = false
+
 func _physics_process(delta: float) -> void:
+	
+	# --- OP script start (to remove) ---
+	if Input.is_action_just_pressed("OP"):
+		is_op = !is_op
+	if is_op:
+		$CrouchingHB.disabled = false
+		$StandingHB.disabled = false
+		var movement = Input.get_vector("move_left", "move_right", "jump", "crouch")
+		position += movement * 20
+		return
+	# --- OP script end ---
+	
 	# Add the gravity.
 	if is_on_floor():
 		coyote_time = COYOTE_TIME
@@ -35,7 +49,6 @@ func _physics_process(delta: float) -> void:
 	if jump_buffer > 0:
 		jump_buffer -= 1
 	
-	# Handle jump.
 	if Input.is_action_just_pressed("jump") and jump_buffer == 0:
 		jump_buffer = 5
 		
