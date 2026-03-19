@@ -28,15 +28,10 @@ func _process(_delta: float) -> void:
 
 func body_entered(body:Node2D):
 	if body is not Player: return
-	activated.emit(group_id_activation)
-	for node in get_tree().get_nodes_in_group("Dynamic Components"):
-		if node.group_id_activation == group_id_activation:
-			node.toggled = true
-	
+	activated.emit(group_id_activation, 0)
+
 
 func body_exited(body:Node2D):
 	if body is not Player: return
-	for node in get_tree().get_nodes_in_group("Dynamic Components"):
-		if node.group_id_activation == group_id_activation:
-			node.toggled = false
+	activated.emit(group_id_activation, -1)
 	

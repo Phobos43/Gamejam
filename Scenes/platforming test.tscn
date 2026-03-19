@@ -157,7 +157,7 @@ sprite_scale = 0.87
 [node name="TexturePlatform2" parent="." unique_id=1982426663 instance=ExtResource("5_mc3sl")]
 position = Vector2(785, 571)
 sprite = ExtResource("10_u5bkg")
-sprite_scale = 2.34
+sprite_scale = 2.5300000000000002
 
 [node name="TextureDoor" parent="." unique_id=964438886 instance=ExtResource("9_3hbtn")]
 position = Vector2(1073.0005, 798.99976)
@@ -177,15 +177,15 @@ initial_position = Vector2(1178, 541.3)
 sprite = ExtResource("10_u5bkg")
 sprite_scale = 1.83
 
-[node name="TexturePlate2" parent="." unique_id=178239541 instance=ExtResource("7_dbjo0")]
-position = Vector2(1072, 506)
-group_id_activation = 2
-sprite = ExtResource("8_mc3sl")
-sprite_scale = 0.305
-
 [node name="TextureButton" parent="." unique_id=774278610 instance=ExtResource("10_3hbtn")]
 position = Vector2(65, 749)
 group_id_activation = 1
 activation_time = 2.0
 sprite = ExtResource("8_mc3sl")
 sprite_scale = 0.3
+
+[node name="TexturePlate" parent="." unique_id=1216968646 instance=ExtResource("7_dbjo0")]
+position = Vector2(1068, 513)
+group_id_activation = 2
+sprite = ExtResource("8_mc3sl")
+sprite_scale = 0.33
