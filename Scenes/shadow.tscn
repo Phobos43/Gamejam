@@ -1,7 +1,6 @@
-[gd_scene format=3 uid="uid://djjam0upfakha"]
+[gd_scene format=3 uid="uid://cj1x3636taa3e"]
 
-[ext_resource type="Script" uid="uid://gic0dffe7lvg" path="res://Scripts/player_controller.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://h0b143c1p55s" path="res://Art/icon.svg" id="2_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://h0b143c1p55s" path="res://Art/icon.svg" id="1_wjdoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(102, 102)
@@ -9,8 +8,7 @@ size = Vector2(102, 102)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
 size = Vector2(102, 51)
 
-[node name="Player" type="CharacterBody2D" unique_id=2009888759]
-script = ExtResource("1_cvnsp")
+[node name="Shadow" type="AnimatableBody2D" unique_id=1061684805]
 
 [node name="StandingHB" type="CollisionShape2D" parent="." unique_id=1334334317]
 shape = SubResource("RectangleShape2D_cvnsp")
@@ -21,7 +19,8 @@ shape = SubResource("RectangleShape2D_vgqql")
 disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1816607338]
+modulate = Color(1, 1, 1, 0.53333336)
 position = Vector2(0, 51)
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_6t5aa")
+texture = ExtResource("1_wjdoq")
 offset = Vector2(0, -64)

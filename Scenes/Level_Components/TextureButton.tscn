@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c4a87m16v2el3" path="res://Scripts/LevelScripts/ButtonManager.gd" id="1_e5bdc"]
 
-[node name="TexturePlate" type="Node2D" unique_id=774278610]
+[node name="TextureButton" type="Node2D" unique_id=774278610]
 script = ExtResource("1_e5bdc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=554495032]
@@ -10,3 +10,4 @@ script = ExtResource("1_e5bdc")
 [node name="Area2D" type="Area2D" parent="." unique_id=992881993]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=278942804]
+debug_color = Color(1, 0.6, 0, 0.41960785)

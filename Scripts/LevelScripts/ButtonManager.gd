@@ -11,7 +11,7 @@ func _ready() -> void:
 
 var display_list = []
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		if show_affecting_groups:
 			for node in get_tree().get_nodes_in_group("Dynamic Components"):
