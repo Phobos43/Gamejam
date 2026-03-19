@@ -23,7 +23,12 @@ var is_crouched = false
 var coyote_time = COYOTE_TIME
 var jump_buffer = JUMP_BUFFER
 
+signal player_died
+
 var is_op = false
+
+func _ready() -> void:
+	$Area2D.area_entered.connect(body_entered)
 
 func _physics_process(delta: float) -> void:
 	
@@ -73,3 +78,7 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.x *= GROUND_FRICTION
 	move_and_slide()
+
+func body_entered(body: Node2D):
+	if body.get_parent() is Hazard: 
+		player_died.emit()

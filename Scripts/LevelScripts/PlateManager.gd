@@ -7,7 +7,9 @@ func _ready() -> void:
 	$Area2D.body_exited.connect(body_exited)
 
 func _process(_delta: float) -> void:
-	pass
+	if Engine.is_editor_hint():
+		process_connections()
+		
 
 func body_entered(body:Node2D):
 	if body is not Player: return

@@ -12,7 +12,7 @@ class_name TextureComponent
 var platform_size : Vector2
 
 var collision_node : CollisionShape2D
-func refresh(collision_param_node) -> void:
+func refresh(collision_param_node : CollisionShape2D) -> void:
 	if !collision_param_node: return
 	collision_node = collision_param_node
 	$Sprite2D.texture = sprite

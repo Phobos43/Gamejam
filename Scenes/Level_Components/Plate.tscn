@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dec4tprcxsyvb" path="res://Scripts/LevelScripts/PlateManager.gd" id="1_rfyw3"]
 
-[node name="TexturePlate" type="Node2D" unique_id=774278610]
+[node name="Plate" type="Node2D" unique_id=774278610]
 script = ExtResource("1_rfyw3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=554495032]

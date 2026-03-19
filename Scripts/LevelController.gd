@@ -13,11 +13,13 @@ var alive_playback : Array[WorldState] = []
 var known_group_ids : Dictionary[int, bool] = {}
 var group_id_timed_activation : Dictionary[int, bool] = {}
 
-# --- Class definitions
+# --- Class definitions ---
 class PlayerState:
 	var player_pos : Vector2
 	var is_crouched : bool
 	var is_collidable : bool
+	func arrayify() -> Array:
+		return [player_pos, is_crouched, is_collidable]
 
 class WorldState:
 	var player_state : PlayerState
@@ -29,7 +31,7 @@ func _ready() -> void:
 		# Find the player in the tree
 		if node is Player:
 			player = node
-			
+			player.player_died.connect(player_died)
 		
 		# Connect activator node signals to the function
 		# Also registers group id to dict
@@ -40,6 +42,7 @@ func _ready() -> void:
 	group_id_timed_activation = known_group_ids.duplicate()
 	# Create and prepare a shadow
 	shadow = load("res://Scenes/shadow.tscn").instantiate()
+	add_child(shadow)
 	shadow.hide()
 
 func _physics_process(_delta: float) -> void:
@@ -55,13 +58,14 @@ func _physics_process(_delta: float) -> void:
 		state.group_id_status = known_group_ids.duplicate() 
 		alive_playback.append(state)
 		
-	elif alive_playback_frame < len(alive_playback):
+	elif alive_playback_frame < len(alive_playback) - 1:
 		var state = alive_playback[alive_playback_frame]
-		shadow.set_state(state.player_state)
+		shadow.set_state(state.player_state.arrayify())
 		# Checks if the "alive" state is identical to the current state
 		if not (state.group_id_status == known_group_ids):
 			for key in state.group_id_status:
 				known_group_ids[key] = known_group_ids[key] or state.group_id_status[key]
+		alive_playback_frame += 1
 
 func signal_activated(group_id, activation_time) -> void:
 	# activation_time = -1 indicates an "off" request
@@ -81,10 +85,16 @@ func signal_activated(group_id, activation_time) -> void:
 		if node.group_id_activation == group_id:
 			node.toggled = true
 
-
 func signal_off(group_id) -> void:
 	group_id_timed_activation[group_id] = false
 	known_group_ids[group_id] = false
 	for node in get_tree().get_nodes_in_group("Dynamic Components"):
 		if node.group_id_activation == group_id:
 			node.toggled = false
+
+func player_died():
+	if is_player_dead:
+		get_tree().reload_current_scene.call_deferred()
+	else:
+		is_player_dead = true
+		
