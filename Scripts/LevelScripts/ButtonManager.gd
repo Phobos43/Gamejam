@@ -25,7 +25,13 @@ func _process(delta: float) -> void:
 				node.queue_free()
 	for node in $Area2D.get_overlapping_bodies():
 		if node is Player and Input.is_action_just_pressed("interact"):
-			
+			timer = activation_time
+			turn_on()
+			break
+	if timer > 0:
+		timer -= delta
+	else:
+		turn_off()
 
 func turn_on():
 	for node in get_tree().get_nodes_in_group("Dynamic Components"):
