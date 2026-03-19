@@ -190,3 +190,10 @@ group_id_activation = 1
 activation_time = 3.0
 sprite = ExtResource("8_mc3sl")
 sprite_scale = 0.2
+
+[node name="TexturePlate2" parent="." unique_id=1187213544 instance=ExtResource("7_dbjo0")]
+position = Vector2(620, 861)
+group_id_activation = 2
+activation_time = 0.0
+sprite = ExtResource("8_mc3sl")
+sprite_scale = 0.28

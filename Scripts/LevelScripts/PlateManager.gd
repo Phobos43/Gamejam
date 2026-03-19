@@ -14,10 +14,7 @@ func body_entered(body:Node2D):
 	activate()
 
 
-
 func body_exited(body:Node2D):
 	if body is not Player: return
 	if activation_time == 0:
 		deactivate()
-		
-	

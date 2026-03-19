@@ -72,5 +72,4 @@ func _physics_process(delta: float) -> void:
 		$StandingHB.disabled = false
 	
 	velocity.x *= GROUND_FRICTION
-
 	move_and_slide()

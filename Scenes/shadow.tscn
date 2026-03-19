@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cj1x3636taa3e"]
 
+[ext_resource type="Script" uid="uid://ds6uaaj5bb4ho" path="res://Scripts/shadow_manager.gd" id="1_8pobm"]
 [ext_resource type="Texture2D" uid="uid://h0b143c1p55s" path="res://Art/icon.svg" id="1_wjdoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
@@ -9,6 +10,7 @@ size = Vector2(102, 102)
 size = Vector2(102, 51)
 
 [node name="Shadow" type="AnimatableBody2D" unique_id=1061684805]
+script = ExtResource("1_8pobm")
 
 [node name="StandingHB" type="CollisionShape2D" parent="." unique_id=1334334317]
 shape = SubResource("RectangleShape2D_cvnsp")
