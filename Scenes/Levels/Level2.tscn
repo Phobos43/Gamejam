@@ -1,14 +1,16 @@
-[gd_scene format=4 uid="uid://cvue48eran1qg"]
+[gd_scene format=4 uid="uid://b11w1ukqs5h0v"]
 
-[ext_resource type="Texture2D" uid="uid://h0b143c1p55s" path="res://Art/icon.svg" id="1_36ke7"]
-[ext_resource type="Texture2D" uid="uid://d2otp8rst178n" path="res://Art/Black square.png" id="2_riv1q"]
-[ext_resource type="PackedScene" uid="uid://djjam0upfakha" path="res://Scenes/player.tscn" id="3_riv1q"]
-[ext_resource type="PackedScene" uid="uid://cha3lljy17bfp" path="res://Scenes/Level_Components/Platform.tscn" id="4_kri6y"]
-[ext_resource type="Texture2D" uid="uid://d6f80cfcc1s5" path="res://Art/cardboard platform.png" id="5_4d3fe"]
-[ext_resource type="PackedScene" uid="uid://c8m2222ybblnx" path="res://Scenes/Level_Components/LevelEnd.tscn" id="6_4d3fe"]
+[ext_resource type="Texture2D" uid="uid://h0b143c1p55s" path="res://Art/icon.svg" id="1_4rk67"]
+[ext_resource type="Script" uid="uid://lekwxrbxfqy8" path="res://Scripts/level_manager.gd" id="1_lmdar"]
+[ext_resource type="Texture2D" uid="uid://d2otp8rst178n" path="res://Art/Black square.png" id="2_f8qf7"]
+[ext_resource type="PackedScene" uid="uid://djjam0upfakha" path="res://Scenes/player.tscn" id="3_lmdar"]
+[ext_resource type="PackedScene" uid="uid://cha3lljy17bfp" path="res://Scenes/Level_Components/Platform.tscn" id="4_d1swa"]
+[ext_resource type="Texture2D" uid="uid://d6f80cfcc1s5" path="res://Art/cardboard platform.png" id="5_ipaot"]
+[ext_resource type="PackedScene" uid="uid://c8m2222ybblnx" path="res://Scenes/Level_Components/LevelEnd.tscn" id="6_ao4h1"]
+[ext_resource type="PackedScene" uid="uid://b6e5tx7snh4sr" path="res://Scenes/Level_Components/Hazard.tscn" id="7_f8qf7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xvio3"]
-texture = ExtResource("1_36ke7")
+texture = ExtResource("1_4rk67")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -44,7 +46,7 @@ texture_region_size = Vector2i(32, 32)
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kri6y"]
-texture = ExtResource("2_riv1q")
+texture = ExtResource("2_f8qf7")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -126,27 +128,37 @@ sources/1 = SubResource("TileSetAtlasSource_xvio3")
 sources/2 = SubResource("TileSetAtlasSource_kri6y")
 
 [node name="Level" type="Node2D" unique_id=103853395]
+script = ExtResource("1_lmdar")
 
 [node name="Alive" type="TileMapLayer" parent="." unique_id=1995638314]
 tile_map_data = PackedByteArray("AAAAAAAAAgAAAAEAAAABAAAAAgAAAAEAAAACAAAAAgAAAAEAAAADAAAAAgAAAAEAAAAEAAAAAgAAAAEAAAAFAAAAAgAAAAEAAAAGAAAAAgAAAAEAAAAHAAAAAgAAAAEAAAAIAAAAAgAAAAEAAAAJAAAAAgAAAAEAAAAKAAAAAgAAAAEAAAALAAAAAgAAAAEAAAAMAAAAAgAAAAEAAAANAAAAAgAAAAEAAAAOAAAAAgAAAAEAAAAPAAAAAgAAAAEAAAAQAAAAAgAAAAEAAAARAAAAAgAAAAEAAAASAAAAAgAAAAEAAAATAAAAAgAAAAEAAAAAAAoAAgAAAAEAAAAAAAkAAgAAAAEAAAAAAAgAAgAAAAEAAAAAAAcAAgAAAAEAAAAAAAYAAgAAAAEAAAAAAAUAAgAAAAEAAAAAAAQAAgAAAAEAAAAAAAMAAgAAAAEAAAAAAAIAAgAAAAEAAAAAAAEAAgAAAAEAAAAAAAsAAgAAAAEAAAAUAAAAAgABAAMAAAAVAAAAAgABAAMAAAAWAAAAAgABAAMAAAAXAAAAAgABAAMAAAAYAAAAAgABAAMAAAAZAAAAAgABAAMAAAAaAAAAAgABAAMAAAAbAAAAAgABAAMAAAAcAAAAAgABAAMAAAAdAAAAAgABAAMAAAAeAAAAAgABAAMAAAAfAAAAAgABAAMAAAAgAAAAAgABAAMAAAAhAAAAAgABAAMAAAAhAAUAAgABAAMAAAAhAAYAAgABAAMAAAAhAAcAAgABAAMAAAAhAAgAAgABAAMAAAAhAAkAAgABAAMAAAAhAAoAAgABAAMAAAAhAAsAAgABAAMAAAAhAAwAAgABAAMAAAAhAA0AAgABAAMAAAAhAA4AAgABAAMAAAAhAA8AAgABAAMAAAAhABAAAgABAAMAAAAhABEAAgABAAMAAAAhABIAAgABAAMAAAAgAAUAAgABAAMAAAAgAAYAAgABAAMAAAAgAAcAAgABAAMAAAAgAAgAAgABAAMAAAAgAAkAAgABAAMAAAAgAAoAAgABAAMAAAAgAAsAAgABAAMAAAAgAAwAAgABAAMAAAAgAA0AAgABAAMAAAAgAA4AAgABAAMAAAAgAA8AAgABAAMAAAAgABAAAgABAAMAAAAgABEAAgABAAMAAAAgABIAAgABAAMAAAAfABIAAgABAAMAAAAeABIAAgABAAMAAAAdABIAAgABAAMAAAAcABIAAgABAAMAAAAbABIAAgABAAMAAAAaABIAAgABAAMAAAAZABIAAgABAAMAAAAYABIAAgABAAMAAAAXABIAAgABAAMAAAAWABIAAgABAAMAAAAVABIAAgABAAMAAAAUABIAAgABAAMAAAATABIAAgABAAMAAAASABIAAgABAAMAAAARABIAAgABAAMAAAAQABIAAgABAAMAAAAPABIAAgABAAMAAAAOABIAAgABAAMAAAANABIAAgABAAMAAAAMABIAAgABAAMAAAALABIAAgABAAMAAAAKABIAAgABAAMAAAAJABIAAgABAAMAAAAIABIAAgABAAMAAAAHABIAAgABAAMAAAAGABIAAgABAAMAAAAFABIAAgABAAMAAAAEABIAAgABAAMAAAADABIAAgABAAMAAAACABIAAgABAAMAAAABABIAAgABAAMAAAAAABIAAgABAAMAAAAAAAwAAgABAAMAAAAAAA0AAgABAAMAAAAAAA4AAgABAAMAAAAAAA8AAgABAAMAAAAAABAAAgABAAMAAAAAABEAAgABAAMAAAA=")
 tile_set = SubResource("TileSet_4d3fe")
 
-[node name="Player" parent="." unique_id=2009888759 instance=ExtResource("3_riv1q")]
+[node name="Player" parent="." unique_id=2009888759 instance=ExtResource("3_lmdar")]
 position = Vector2(91, 91)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=496639230]
 anchor_mode = 0
 zoom = Vector2(0.6, 0.6)
 
-[node name="Platform" parent="." unique_id=1267935751 instance=ExtResource("4_kri6y")]
-position = Vector2(463, 444)
-sprite = ExtResource("5_4d3fe")
-sprite_scale = 2.0
-
-[node name="Platform2" parent="." unique_id=319414447 instance=ExtResource("4_kri6y")]
-position = Vector2(830, 294)
-sprite = ExtResource("5_4d3fe")
-sprite_scale = 2.0
-
-[node name="LevelEnd" parent="." unique_id=1024330424 instance=ExtResource("6_4d3fe")]
+[node name="LevelEnd" parent="." unique_id=1024330424 instance=ExtResource("6_ao4h1")]
 position = Vector2(1056, 96)
+
+[node name="Platform" parent="." unique_id=1267935751 instance=ExtResource("4_d1swa")]
+position = Vector2(960, 192)
+sprite = ExtResource("5_ipaot")
+sprite_scale = 2.0
+
+[node name="Platform2" parent="." unique_id=1466246735 instance=ExtResource("4_d1swa")]
+position = Vector2(832, 192)
+sprite = ExtResource("5_ipaot")
+sprite_scale = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1620115197]
+
+[node name="Hazard" parent="." unique_id=2049070350 instance=ExtResource("7_f8qf7")]
+modulate = Color(18.892157, 0, 0, 1)
+show_behind_parent = true
+position = Vector2(992, 574)
+sprite = ExtResource("5_ipaot")
+sprite_scale = 1.09

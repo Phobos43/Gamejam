@@ -1,2 +1,4 @@
-# Gamejam
-Wohooo gamejam
+# To do list:
+	- Menu
+	- Levels
+	- Import art and music
