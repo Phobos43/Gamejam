@@ -3,6 +3,7 @@ extends Node2D
 # --- Nodes ---
 var player : Player
 var shadow : Shadow
+var level_end : LevelEnd
 
 # --- World status ---
 var is_player_dead := false
@@ -26,7 +27,6 @@ class WorldState:
 	var player_state : PlayerState
 	var group_id_status : Dictionary[int, bool]
 
-
 func _ready() -> void:
 	for node in get_children():
 		# Find the player in the tree
@@ -34,7 +34,9 @@ func _ready() -> void:
 			player = node
 			player.player_died.connect(player_died)
 			player_init_pos = player.global_position
-		
+		elif node is LevelEnd:
+			level_end = node
+			level_end.end_level.connect(next_level)
 		# Connect activator node signals to the function
 		# Also registers group id to dict
 		elif node.has_signal("activated"):
@@ -106,4 +108,6 @@ func player_died():
 	else:
 		is_player_dead = true
 		player.global_position = player_init_pos
-		
+
+func next_level():
+	get_tree().change_scene_to_file.call_deferred("res://Scenes/Levels/Level2.tscn")
