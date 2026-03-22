@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bgvew4d4iopml"]
+
+[ext_resource type="Script" uid="uid://df4so8qqhjbar" path="res://Scripts/LevelScripts/MovingPlatformManager.gd" id="1_e5phs"]
+[ext_resource type="Script" uid="uid://dv2imw0ti2ll" path="res://Scripts/LevelScripts/PlatformManager.gd" id="2_rtto0"]
+
+[sub_resource type="Animation" id="Animation_7n2fh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3h4et"]
+resource_name = "move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-3.4822018, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mby7g"]
+_data = {
+&"RESET": SubResource("Animation_7n2fh"),
+&"move": SubResource("Animation_3h4et")
+}
+
+[node name="MovingPlatform" type="Path2D" unique_id=335516551]
+script = ExtResource("1_e5phs")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=450356868]
+position = Vector2(225, 11)
+rotation = -2.9251423
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D" unique_id=671384020]
+remote_path = NodePath("../../AnimatableBody2D")
+update_rotation = false
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1938031882]
+position = Vector2(225, 11)
+script = ExtResource("2_rtto0")
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=1805915143]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1709219696]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=741536755]
+libraries/ = SubResource("AnimationLibrary_mby7g")
+speed_scale = 2.0

@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://1j7jtidv6jtx" path="res://Scenes/Level_Components/Button.tscn" id="10_3hbtn"]
 [ext_resource type="Texture2D" uid="uid://d6f80cfcc1s5" path="res://Art/cardboard platform.png" id="10_u5bkg"]
 [ext_resource type="PackedScene" uid="uid://b6e5tx7snh4sr" path="res://Scenes/Level_Components/Hazard.tscn" id="12_tqr5a"]
+[ext_resource type="PackedScene" uid="uid://bgvew4d4iopml" path="res://Scenes/Level_Components/MovingPlatform.tscn" id="13_622m6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tqr5a"]
 texture = ExtResource("1_u57gy")
@@ -131,6 +132,12 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_tqr5a")
 sources/2 = SubResource("TileSetAtlasSource_622m6")
 
+[sub_resource type="Curve2D" id="Curve2D_622m6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -69, -105, 0, 0, 0, 0, -80, 66)
+}
+point_count = 2
+
 [node name="Node2D" type="Node2D" unique_id=112103524]
 script = ExtResource("1_u5bkg")
 
@@ -154,6 +161,7 @@ scale = Vector2(0.20965749, 0.20965749)
 position = Vector2(408, 648)
 sprite = ExtResource("10_u5bkg")
 sprite_scale = 2.06
+platform_state = 1
 
 [node name="TexturePlatform2" parent="." unique_id=1982426663 instance=ExtResource("5_mc3sl")]
 position = Vector2(785, 571)
@@ -197,3 +205,7 @@ modulate = Color(1, 0.3529412, 1, 1)
 position = Vector2(644, 875)
 sprite = ExtResource("1_u57gy")
 sprite_scale = 0.76
+
+[node name="MovingPlatform" parent="." unique_id=335516551 instance=ExtResource("13_622m6")]
+position = Vector2(597, 398)
+curve = SubResource("Curve2D_622m6")

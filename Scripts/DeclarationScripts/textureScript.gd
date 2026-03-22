@@ -23,7 +23,8 @@ var platform_size : Vector2
 var collision_node : CollisionShape2D
 
 func _process(_delta: float) -> void:
-	update_platform_hitbox(Global.is_player_alive)
+	if not Engine.is_editor_hint():
+		update_platform_hitbox(Global.is_player_alive)
 
 
 func refresh(collision_param_node : CollisionShape2D) -> void:
@@ -37,21 +38,23 @@ func refresh(collision_param_node : CollisionShape2D) -> void:
 		collision.size = platform_size * sprite_scale
 		collision_node.shape = collision
 
-func update_platform_hitbox(is_player_dead:bool):
+func update_platform_hitbox(is_player_alive:bool):
 	if !collision_node: return
 	if platform_state == World.Constant:
 		collision_node.disabled = false
 		modulate = Color(1, 1, 1, 1)
 		return
-	if is_player_dead:
-		collision_node.disabled = platform_state
+	if is_player_alive:
 		if platform_state == World.Alive:
+			collision_node.disabled = false
 			modulate = Color(1, 1, 1, 1)
 		else:
+			collision_node.disabled = true
 			modulate = Color(1, 1, 1, 0.5)
 	else:
-		collision_node.disabled = !platform_state
 		if platform_state == World.Dead:
+			collision_node.disabled = false
 			modulate = Color(1, 1, 1, 1)
 		else:
+			collision_node.disabled = true
 			modulate = Color(1, 1, 1, 0.5)
