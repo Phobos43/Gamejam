@@ -16,7 +16,7 @@ config/icon="res://Art/icon.svg"
 
 [autoload]
 
-PlayerPosClass="*uid://birx3trfhucka"
+Global="*uid://birx3trfhucka"
 
 [display]
 

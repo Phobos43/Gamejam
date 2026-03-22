@@ -6,7 +6,6 @@ var shadow : Shadow
 var level_end : LevelEnd
 
 # --- World status ---
-var is_player_dead := false
 var alive_playback_frame := 0
 var alive_playback : Array[WorldState] = []
 
@@ -42,15 +41,20 @@ func _ready() -> void:
 		elif node.has_signal("activated"):
 			node.activated.connect(signal_activated)
 			known_group_ids[node.group_id_activation] = false
+		
+		if node.is_class("TextureComponent"):
+			node.update_platform_hitbox(true)
 	
 	group_id_timed_activation = known_group_ids.duplicate()
 	# Create and prepare a shadow
 	shadow = load("res://Scenes/shadow.tscn").instantiate()
 	add_child(shadow)
 	shadow.hide()
+	
+	
 
 func _physics_process(_delta: float) -> void:
-	if not is_player_dead:
+	if Global.is_player_alive:
 		var p_state = PlayerState.new()
 		p_state.player_pos = player.global_position
 		p_state.is_crouched = player.is_crouched
@@ -103,11 +107,13 @@ func signal_off(group_id) -> void:
 			node.toggled = false
 
 func player_died():
-	if is_player_dead:
+	if not Global.is_player_alive:
+		Global.is_player_alive = true
 		get_tree().reload_current_scene.call_deferred()
 	else:
-		is_player_dead = true
+		Global.is_player_alive = false
 		player.global_position = player_init_pos
+		
 
 func next_level():
 	get_tree().change_scene_to_file.call_deferred("res://Scenes/Levels/Level2.tscn")

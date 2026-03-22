@@ -162,3 +162,21 @@ show_behind_parent = true
 position = Vector2(992, 574)
 sprite = ExtResource("5_ipaot")
 sprite_scale = 1.09
+
+[node name="Platform3" parent="." unique_id=794380766 instance=ExtResource("4_d1swa")]
+position = Vector2(63, 561)
+sprite = ExtResource("5_ipaot")
+
+[node name="Platform4" parent="." unique_id=217885390 instance=ExtResource("4_d1swa")]
+modulate = Color(1, 1, 1, 0.5)
+position = Vector2(337, 422)
+sprite = ExtResource("5_ipaot")
+sprite_scale = 2.0
+platform_state = 2
+
+[node name="Platform5" parent="." unique_id=19705297 instance=ExtResource("4_d1swa")]
+modulate = Color(1, 1, 1, 0.5)
+position = Vector2(590, 315)
+sprite = ExtResource("5_ipaot")
+sprite_scale = 2.0
+platform_state = 2
