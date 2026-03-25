@@ -170,20 +170,19 @@ sprite = ExtResource("7_d4xud")
 sprite_scale = 1.62
 
 [node name="Platform2" parent="." unique_id=2074384883 instance=ExtResource("8_t0ble")]
-position = Vector2(88, 436)
+position = Vector2(114, 451)
 sprite = ExtResource("7_d4xud")
 sprite_scale = 1.955
 
 [node name="Button" parent="." unique_id=774278610 instance=ExtResource("10_nvbyj")]
-position = Vector2(85, 383)
+position = Vector2(87, 416)
 group_id_activation = 1
-show_affecting_groups = true
 activation_time = 5.0
 sprite = ExtResource("7_q5el5")
 sprite_scale = 0.315
 
 [node name="Door" parent="." unique_id=199115946 instance=ExtResource("11_3i7ro")]
-position = Vector2(931, 97)
+position = Vector2(931, 97.00003)
 group_id_activation = 1
 easing_mode = 2
 toggled_position = Vector2(931, 221)
@@ -192,6 +191,8 @@ sprite = ExtResource("3_ve7n4")
 sprite_scale = 0.6
 
 [node name="Platform5" parent="." unique_id=876641748 instance=ExtResource("8_t0ble")]
+modulate = Color(1, 1, 1, 0.5)
 position = Vector2(531, 305)
 sprite = ExtResource("7_d4xud")
 sprite_scale = 2.365
+platform_state = 2

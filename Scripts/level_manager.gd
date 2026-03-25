@@ -116,4 +116,4 @@ func player_died():
 		
 
 func next_level():
-	get_tree().change_scene_to_file.call_deferred("res://Scenes/Levels/Level2.tscn")
+	Global.next_level()
