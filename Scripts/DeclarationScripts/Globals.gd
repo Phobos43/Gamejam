@@ -11,11 +11,24 @@ var current_level = 0
 
 var level_paths_list = []
 
+# Nodes
+var music_player : AudioStreamPlayer
+
 func _ready():
 	var root = get_tree().root
 	# Using a negative index counts from the end, so this gets the last child node of `root`.
 	current_scene = root.get_child(-1)
 	level_paths_list = _get_levels_from_folder("res://Scenes/Levels/")
+	
+	music_player = AudioStreamPlayer.new()
+	add_child(music_player)
+	change_music(load("res://Assets/titlescreendemofinal.wav"))
+	
+
+func change_music(new_music : AudioStreamWAV):
+	music_player.stop()
+	music_player.stream = new_music
+	music_player.play()
 	
 func next_level():
 	is_player_alive = true

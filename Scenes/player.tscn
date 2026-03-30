@@ -9,6 +9,24 @@ size = Vector2(102, 102)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
 size = Vector2(102, 51)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_cvnsp"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" unique_id=2009888759]
 script = ExtResource("1_cvnsp")
 
@@ -35,3 +53,7 @@ shape = SubResource("RectangleShape2D_cvnsp")
 position = Vector2(0, 25.5)
 shape = SubResource("RectangleShape2D_vgqql")
 disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=406128748]
+sprite_frames = SubResource("SpriteFrames_cvnsp")
+animation = &"idle"

@@ -209,3 +209,6 @@ sprite_scale = 0.76
 [node name="MovingPlatform" parent="." unique_id=335516551 instance=ExtResource("13_622m6")]
 position = Vector2(597, 398)
 curve = SubResource("Curve2D_622m6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1988201734]
+autoplay = true
