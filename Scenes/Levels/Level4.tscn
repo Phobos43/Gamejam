@@ -10,11 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://cha3lljy17bfp" path="res://Scenes/Level_Components/Platform.tscn" id="8_bose6"]
 [ext_resource type="Texture2D" uid="uid://dilutspxbo0ga" path="res://Assets/new_atlas_texture.tres" id="9_53tmp"]
 [ext_resource type="PackedScene" uid="uid://1j7jtidv6jtx" path="res://Scenes/Level_Components/Button.tscn" id="10_n2eit"]
-[ext_resource type="Texture2D" uid="uid://i8vc3tjx2bld" path="res://Art/Debug Assets/White square.png" id="11_cbr4v"]
+[ext_resource type="Texture2D" uid="uid://wa6urvxwtrap" path="res://Art/Platform/pixil-frame-0(3).png" id="11_1u1uf"]
 [ext_resource type="PackedScene" uid="uid://c7mneuieqaa04" path="res://Scenes/Level_Components/Door.tscn" id="12_atq0n"]
 [ext_resource type="Texture2D" uid="uid://d6f80cfcc1s5" path="res://Art/Debug Assets/cardboard platform.png" id="13_wj3oa"]
 [ext_resource type="PackedScene" uid="uid://b6e5tx7snh4sr" path="res://Scenes/Level_Components/Hazard.tscn" id="14_1u1uf"]
-[ext_resource type="Texture2D" uid="uid://c4ce8xrvtl2rl" path="res://Assets/hazard.tres" id="15_8qdnk"]
+[ext_resource type="Texture2D" uid="uid://d4mmoyspyx2o3" path="res://Assets/hazard2.tres" id="15_1u1uf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nyq0l"]
 size = Vector2(43.7, 723)
@@ -129,8 +129,8 @@ sprite_scale = 0.1
 [node name="Button" parent="." unique_id=774278610 instance=ExtResource("10_n2eit")]
 position = Vector2(1044, 562)
 group_id_activation = 1
-sprite = ExtResource("11_cbr4v")
-sprite_scale = 0.42
+sprite = ExtResource("11_1u1uf")
+sprite_scale = 1.5
 
 [node name="Door" parent="." unique_id=541449114 instance=ExtResource("12_atq0n")]
 position = Vector2(942.99976, 142.99994)
@@ -144,5 +144,5 @@ sprite_scale = 3.0
 
 [node name="Hazard" parent="." unique_id=2049070350 instance=ExtResource("14_1u1uf")]
 position = Vector2(126, 665)
-sprite = ExtResource("15_8qdnk")
+sprite = ExtResource("15_1u1uf")
 sprite_scale = 0.1

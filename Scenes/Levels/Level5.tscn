@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cha3lljy17bfp" path="res://Scenes/Level_Components/Platform.tscn" id="8_3o4m1"]
 [ext_resource type="Texture2D" uid="uid://dilutspxbo0ga" path="res://Assets/new_atlas_texture.tres" id="9_uxovo"]
 [ext_resource type="PackedScene" uid="uid://1j7jtidv6jtx" path="res://Scenes/Level_Components/Button.tscn" id="10_4psah"]
-[ext_resource type="Texture2D" uid="uid://i8vc3tjx2bld" path="res://Art/Debug Assets/White square.png" id="11_4j28p"]
+[ext_resource type="Texture2D" uid="uid://wa6urvxwtrap" path="res://Art/Platform/pixil-frame-0(3).png" id="11_68v1p"]
 [ext_resource type="PackedScene" uid="uid://c7mneuieqaa04" path="res://Scenes/Level_Components/Door.tscn" id="12_7lec8"]
 [ext_resource type="Texture2D" uid="uid://d6f80cfcc1s5" path="res://Art/Debug Assets/cardboard platform.png" id="13_b3eu4"]
 [ext_resource type="PackedScene" uid="uid://b6e5tx7snh4sr" path="res://Scenes/Level_Components/Hazard.tscn" id="14_qupqr"]
@@ -102,17 +102,34 @@ sprite = ExtResource("9_uxovo")
 sprite_scale = 0.1
 
 [node name="Platform5" parent="." unique_id=1929983652 instance=ExtResource("8_3o4m1")]
-position = Vector2(968, 275)
+position = Vector2(1148, 536)
 sprite = ExtResource("9_uxovo")
 sprite_scale = 0.1
 
 [node name="Platform4" parent="." unique_id=2073458665 instance=ExtResource("8_3o4m1")]
-position = Vector2(794, 274)
+position = Vector2(916, 622)
+rotation = 1.5707964
+sprite = ExtResource("9_uxovo")
+sprite_scale = 0.06
+
+[node name="Platform10" parent="." unique_id=2086897466 instance=ExtResource("8_3o4m1")]
+position = Vector2(979, 538)
+sprite = ExtResource("9_uxovo")
+sprite_scale = 0.1
+
+[node name="Platform8" parent="." unique_id=494250096 instance=ExtResource("8_3o4m1")]
+position = Vector2(836, 275)
+sprite = ExtResource("9_uxovo")
+sprite_scale = 0.1
+
+[node name="Platform9" parent="." unique_id=2047892178 instance=ExtResource("8_3o4m1")]
+position = Vector2(783, 143)
+rotation = 1.5707964
 sprite = ExtResource("9_uxovo")
 sprite_scale = 0.1
 
 [node name="Platform6" parent="." unique_id=147215100 instance=ExtResource("8_3o4m1")]
-position = Vector2(529, 491)
+position = Vector2(531, 264)
 sprite = ExtResource("9_uxovo")
 sprite_scale = 0.1
 
@@ -122,22 +139,39 @@ sprite = ExtResource("9_uxovo")
 sprite_scale = 0.1
 
 [node name="Button" parent="." unique_id=774278610 instance=ExtResource("10_4psah")]
-position = Vector2(1198, 639)
+position = Vector2(508, 218)
 group_id_activation = 1
-sprite = ExtResource("11_4j28p")
-sprite_scale = 0.42
+activation_time = 2.0
+sprite = ExtResource("11_68v1p")
+sprite_scale = 1.5
+
+[node name="Button2" parent="." unique_id=1401816801 instance=ExtResource("10_4psah")]
+position = Vector2(74, 658)
+group_id_activation = 2
+activation_time = 2.0
+sprite = ExtResource("11_68v1p")
+sprite_scale = 1.5
 
 [node name="Door" parent="." unique_id=541449114 instance=ExtResource("12_7lec8")]
-position = Vector2(942.99976, 142.99994)
+position = Vector2(1107, 143)
 rotation = 1.5707964
 group_id_activation = 1
-easing_mode = 2
-toggled_position = Vector2(943, -101)
-initial_position = Vector2(943, 143)
+easing_mode = 1
+toggled_position = Vector2(1107, 407)
+initial_position = Vector2(1107, 143)
 sprite = ExtResource("13_b3eu4")
 sprite_scale = 3.0
 
 [node name="Hazard" parent="." unique_id=2049070350 instance=ExtResource("14_qupqr")]
-position = Vector2(126, 665)
+position = Vector2(633, 657)
 sprite = ExtResource("15_68v1p")
 sprite_scale = 0.1
+
+[node name="Door2" parent="." unique_id=1539308729 instance=ExtResource("12_7lec8")]
+position = Vector2(990, 276)
+group_id_activation = 2
+easing_mode = 1
+toggled_position = Vector2(990, 80)
+initial_position = Vector2(990, 276)
+sprite = ExtResource("13_b3eu4")
+sprite_scale = 2.0

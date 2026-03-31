@@ -36,23 +36,12 @@ enum Animations {
 
 signal player_died
 
-var is_op = false
 
 
 func _ready() -> void:
 	$Area2D.area_entered.connect(body_entered)
 
 func _physics_process(delta: float) -> void:
-	# --- OP script start (to remove) ---
-	if Input.is_action_just_pressed("OP"):
-		is_op = !is_op
-	if is_op:
-		$CrouchingHB.disabled = false
-		$StandingHB.disabled = false
-		var movement = Input.get_vector("move_left", "move_right", "jump", "crouch")
-		position += movement * 20
-		return
-	# --- OP script end ---
 	
 	is_player_crushed()
 	

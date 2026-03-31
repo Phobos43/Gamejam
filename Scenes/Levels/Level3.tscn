@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cha3lljy17bfp" path="res://Scenes/Level_Components/Platform.tscn" id="8_6ggnd"]
 [ext_resource type="Texture2D" uid="uid://dilutspxbo0ga" path="res://Assets/new_atlas_texture.tres" id="9_1h71y"]
 [ext_resource type="PackedScene" uid="uid://1j7jtidv6jtx" path="res://Scenes/Level_Components/Button.tscn" id="10_s3p7u"]
-[ext_resource type="Texture2D" uid="uid://i8vc3tjx2bld" path="res://Art/Debug Assets/White square.png" id="11_7ithr"]
+[ext_resource type="Texture2D" uid="uid://wa6urvxwtrap" path="res://Art/Platform/pixil-frame-0(3).png" id="11_6ggnd"]
 [ext_resource type="PackedScene" uid="uid://c7mneuieqaa04" path="res://Scenes/Level_Components/Door.tscn" id="12_r3ubd"]
 [ext_resource type="Texture2D" uid="uid://d6f80cfcc1s5" path="res://Art/Debug Assets/cardboard platform.png" id="13_ddjm6"]
 
@@ -113,8 +113,8 @@ sprite_scale = 0.1
 position = Vector2(143, 347)
 group_id_activation = 1
 activation_time = 5.0
-sprite = ExtResource("11_7ithr")
-sprite_scale = 0.42
+sprite = ExtResource("11_6ggnd")
+sprite_scale = 1.5
 
 [node name="Door" parent="." unique_id=541449114 instance=ExtResource("12_r3ubd")]
 position = Vector2(1143, 142.99994)

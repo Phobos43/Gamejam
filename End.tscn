@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://b7xonsyuw2jnd"]
+
+[ext_resource type="Script" uid="uid://1uvjihou821m" path="res://fade_in.gd" id="1_lry8e"]
+[ext_resource type="FontFile" uid="uid://fyqt1vjcs3pq" path="res://IMPACTED.ttf" id="2_ede3x"]
+[ext_resource type="Script" uid="uid://8bunnaji2s2f" path="res://opensettings.gd" id="3_ede3x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wqwc"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 11
+
+[node name="End" type="Control" unique_id=1796703217]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lry8e")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1576442055]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=859227617]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 32.0
+offset_right = 97.0
+offset_bottom = 87.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_ede3x")
+theme_override_font_sizes/font_size = 60
+text = "You did it!"
+
+[node name="Label2" type="Label" parent="." unique_id=288036299]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -27.5
+offset_right = 197.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ede3x")
+theme_override_font_sizes/font_size = 60
+text = "Thank you for playing"
+
+[node name="Button" type="Button" parent="." unique_id=69733041]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -83.0
+offset_right = 22.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_7wqwc")
+text = "   Return to main menu   "
+script = ExtResource("3_ede3x")
+target_scene = "uid://bftn3umej2pjo"

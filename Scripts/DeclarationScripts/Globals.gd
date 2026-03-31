@@ -10,6 +10,10 @@ var current_scene = null
 var current_level = 0
 
 var level_paths_list = []
+var volume = 1.0:
+	set(val):
+		volume = val
+		music_player.volume_linear = val
 
 # Nodes
 var music_player : AudioStreamPlayer
@@ -29,6 +33,8 @@ func _ready():
 
 func start_game():
 	change_music(load("res://Assets/main_game.wav"))
+	music_player.pitch_scale = 0.5
+	_deferred_goto_scene.call_deferred("res://Scenes/Levels/Level1.tscn")
 
 
 func change_music(new_music : AudioStreamWAV):
@@ -40,11 +46,19 @@ func next_level():
 	is_player_alive = true
 	
 	current_level += 1
+	if current_level >= len(level_paths_list):
+		_deferred_goto_scene.call_deferred("res://End.tscn")
+		return
 	var path = level_paths_list[current_level]
 	_deferred_goto_scene.call_deferred(path)
 	print(current_level)
 
 func _deferred_goto_scene(path):
+	if !current_scene:
+		if get_tree().current_scene:
+			current_scene = get_tree().current_scene
+		else:
+			return
 	current_scene.free()
 
 	var s = ResourceLoader.load(path)
