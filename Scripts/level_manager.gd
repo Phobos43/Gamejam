@@ -18,8 +18,10 @@ var player_init_pos : Vector2
 class PlayerState:
 	var player_pos : Vector2
 	var is_collidable : bool
+	var current_animation : int
+	var facing_right : bool
 	func arrayify() -> Array:
-		return [player_pos, is_collidable]
+		return [player_pos, is_collidable, current_animation, facing_right]
 
 class WorldState:
 	var player_state : PlayerState
@@ -48,6 +50,7 @@ func _ready() -> void:
 	# Create and prepare a shadow
 	shadow = load("res://Scenes/shadow.tscn").instantiate()
 	add_child(shadow)
+	shadow.z_index = -1
 	shadow.hide()
 	
 	
@@ -58,9 +61,12 @@ func _physics_process(_delta: float) -> void:
 		$BGDead.hide()
 		$AmbianceAlive.show()
 		$AmbianceDead.hide()
+		$BGAlive.modulate = Color(0.8, 0.8, 0.8)
 		var p_state = PlayerState.new()
 		p_state.player_pos = player.global_position
 		p_state.is_collidable = false
+		p_state.current_animation = player.current_animation
+		p_state.facing_right = player.is_facing_right
 		
 		var state = WorldState.new()
 		state.player_state = p_state
@@ -70,7 +76,9 @@ func _physics_process(_delta: float) -> void:
 		
 	elif alive_playback_frame < len(alive_playback) - 1:
 		$BGAlive.hide()
-		$BGDead.shoe()
+		$BGDead.show()
+		
+		$BGDead.modulate = Color(0.8, 0.8, 0.8)
 		$AmbianceAlive.hide()
 		$AmbianceDead.show()
 		var state = alive_playback[alive_playback_frame]

@@ -20,6 +20,9 @@ func _ready():
 	current_scene = root.get_child(-1)
 	level_paths_list = _get_levels_from_folder("res://Scenes/Levels/")
 	
+	level_paths_list.sort()
+	
+	print(level_paths_list)
 	music_player = AudioStreamPlayer.new()
 	add_child(music_player)
 	change_music(load("res://Assets/titlescreendemofinal.wav"))
@@ -39,6 +42,7 @@ func next_level():
 	current_level += 1
 	var path = level_paths_list[current_level]
 	_deferred_goto_scene.call_deferred(path)
+	print(current_level)
 
 func _deferred_goto_scene(path):
 	current_scene.free()

@@ -1,28 +1,44 @@
 [gd_scene format=3 uid="uid://cj1x3636taa3e"]
 
 [ext_resource type="Script" uid="uid://ds6uaaj5bb4ho" path="res://Scripts/shadow_manager.gd" id="1_8pobm"]
-[ext_resource type="Texture2D" uid="uid://h0b143c1p55s" path="res://Art/Debug Assets/icon.svg" id="1_wjdoq"]
+[ext_resource type="Texture2D" uid="uid://oh34tlv766cy" path="res://Art/Cat/catidle.png" id="2_bhi63"]
+[ext_resource type="Texture2D" uid="uid://baf7ouhgh5rlx" path="res://Art/Cat/catjump.png" id="3_xxmrs"]
+[ext_resource type="Texture2D" uid="uid://endckej2xno2" path="res://Art/Cat/catwalk.png" id="4_twoae"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
-size = Vector2(102, 102)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
-size = Vector2(102, 51)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lfe7"]
+size = Vector2(102, 106)
 
 [node name="Shadow" type="AnimatableBody2D" unique_id=1061684805]
 script = ExtResource("1_8pobm")
 
-[node name="StandingHB" type="CollisionShape2D" parent="." unique_id=1334334317]
-shape = SubResource("RectangleShape2D_cvnsp")
+[node name="StandingHB" type="CollisionShape2D" parent="." unique_id=1854988631]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_7lfe7")
 
-[node name="CrouchingHB" type="CollisionShape2D" parent="." unique_id=1960907520]
-position = Vector2(0, 25.5)
-shape = SubResource("RectangleShape2D_vgqql")
-disabled = true
+[node name="Idle" type="Sprite2D" parent="." unique_id=221097679]
+position = Vector2(0, 5.9999995)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_bhi63")
+hframes = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1816607338]
-modulate = Color(1, 1, 1, 0.53333336)
-position = Vector2(0, 51)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("1_wjdoq")
-offset = Vector2(0, -64)
+[node name="JumpAscend" type="Sprite2D" parent="." unique_id=1189541393]
+visible = false
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("3_xxmrs")
+region_enabled = true
+region_rect = Rect2(434, 0, 410, 420)
+
+[node name="JumpFalling" type="Sprite2D" parent="." unique_id=526877428]
+visible = false
+position = Vector2(0, 8)
+scale = Vector2(0.25822785, 0.25714287)
+texture = ExtResource("3_xxmrs")
+region_enabled = true
+region_rect = Rect2(869, 0, 395, 420)
+
+[node name="Walk" type="Sprite2D" parent="." unique_id=1856276286]
+visible = false
+position = Vector2(0, 5)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("4_twoae")
+hframes = 6

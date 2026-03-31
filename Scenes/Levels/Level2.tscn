@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c8m2222ybblnx" path="res://Scenes/Level_Components/LevelEnd.tscn" id="7_ab8bd"]
 [ext_resource type="Texture2D" uid="uid://jh7ng8qf1bvc" path="res://Art/Backgrounds/Ambiance alive.png" id="8_w5ayf"]
 [ext_resource type="Texture2D" uid="uid://hkowr5wmaycs" path="res://Art/Backgrounds/Ambiance dead.png" id="9_ya3ly"]
+[ext_resource type="PackedScene" uid="uid://b6e5tx7snh4sr" path="res://Scenes/Level_Components/Hazard.tscn" id="10_ao4h1"]
+[ext_resource type="Texture2D" uid="uid://c4ce8xrvtl2rl" path="res://Assets/hazard.tres" id="11_ngp1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nyq0l"]
 size = Vector2(43.7, 723)
@@ -26,25 +28,29 @@ size = Vector2(37.34, 489)
 script = ExtResource("1_d1swa")
 
 [node name="BGAlive" type="Sprite2D" parent="." unique_id=314204558]
+z_index = -5
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_ipaot")
 centered = false
 
 [node name="BGDead" type="Sprite2D" parent="." unique_id=1813840342]
 visible = false
+z_index = -5
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_ao4h1")
 centered = false
 
 [node name="Platform" parent="." unique_id=1267935751 instance=ExtResource("4_ngp1c")]
-position = Vector2(1043, 375)
+position = Vector2(1152, 265)
 sprite = ExtResource("5_u5eb6")
 sprite_scale = 0.1
 
 [node name="Platform2" parent="." unique_id=1357063398 instance=ExtResource("4_ngp1c")]
-position = Vector2(662, 549)
+modulate = Color(1, 1, 1, 0.5)
+position = Vector2(748, 494)
 sprite = ExtResource("5_u5eb6")
 sprite_scale = 0.1
+platform_state = 2
 
 [node name="Player" parent="." unique_id=2009888759 instance=ExtResource("6_tbiw2")]
 position = Vector2(155, 158)
@@ -57,12 +63,14 @@ zoom = Vector2(0.5, 0.5)
 position = Vector2(1258, 134)
 
 [node name="AmbianceAlive" type="Sprite2D" parent="." unique_id=830958137]
+z_index = 5
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_w5ayf")
 centered = false
 
 [node name="AmbianceDead" type="Sprite2D" parent="." unique_id=27860230]
 visible = false
+z_index = 5
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("9_ya3ly")
 centered = false
@@ -95,3 +103,8 @@ position = Vector2(1247, 9)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall" unique_id=1524727071]
 position = Vector2(8, 464.5)
 shape = SubResource("RectangleShape2D_8k7lt")
+
+[node name="Hazard" parent="." unique_id=2049070350 instance=ExtResource("10_ao4h1")]
+position = Vector2(1160, 649)
+sprite = ExtResource("11_ngp1c")
+sprite_scale = 0.1

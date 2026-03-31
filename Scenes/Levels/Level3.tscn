@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://dcvm5do12mvsk"]
+
+[ext_resource type="Script" uid="uid://lekwxrbxfqy8" path="res://Scripts/level_manager.gd" id="1_io7on"]
+[ext_resource type="Texture2D" uid="uid://0qtsu6koqqqo" path="res://Art/Backgrounds/Background alive.png" id="2_2oimi"]
+[ext_resource type="Texture2D" uid="uid://bd4vf3xlt4gib" path="res://Art/Backgrounds/Background dead (1).png" id="3_uyxm8"]
+[ext_resource type="PackedScene" uid="uid://djjam0upfakha" path="res://Scenes/player.tscn" id="4_gdtak"]
+[ext_resource type="PackedScene" uid="uid://c8m2222ybblnx" path="res://Scenes/Level_Components/LevelEnd.tscn" id="5_mch4y"]
+[ext_resource type="Texture2D" uid="uid://jh7ng8qf1bvc" path="res://Art/Backgrounds/Ambiance alive.png" id="6_bgycq"]
+[ext_resource type="Texture2D" uid="uid://hkowr5wmaycs" path="res://Art/Backgrounds/Ambiance dead.png" id="7_wn8pd"]
+[ext_resource type="PackedScene" uid="uid://cha3lljy17bfp" path="res://Scenes/Level_Components/Platform.tscn" id="8_6ggnd"]
+[ext_resource type="Texture2D" uid="uid://dilutspxbo0ga" path="res://Assets/new_atlas_texture.tres" id="9_1h71y"]
+[ext_resource type="PackedScene" uid="uid://1j7jtidv6jtx" path="res://Scenes/Level_Components/Button.tscn" id="10_s3p7u"]
+[ext_resource type="Texture2D" uid="uid://i8vc3tjx2bld" path="res://Art/Debug Assets/White square.png" id="11_7ithr"]
+[ext_resource type="PackedScene" uid="uid://c7mneuieqaa04" path="res://Scenes/Level_Components/Door.tscn" id="12_r3ubd"]
+[ext_resource type="Texture2D" uid="uid://d6f80cfcc1s5" path="res://Art/Debug Assets/cardboard platform.png" id="13_ddjm6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyq0l"]
+size = Vector2(43.7, 723)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8dmm"]
+size = Vector2(1199, 44.7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f08vh"]
+size = Vector2(1243, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8k7lt"]
+size = Vector2(37.34, 489)
+
+[node name="Level" type="Node2D" unique_id=103853395]
+script = ExtResource("1_io7on")
+
+[node name="BGAlive" type="Sprite2D" parent="." unique_id=314204558]
+z_index = -5
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_2oimi")
+centered = false
+
+[node name="BGDead" type="Sprite2D" parent="." unique_id=1813840342]
+visible = false
+z_index = -5
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_uyxm8")
+centered = false
+
+[node name="Player" parent="." unique_id=2009888759 instance=ExtResource("4_gdtak")]
+position = Vector2(155, 158)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=496639230]
+anchor_mode = 0
+zoom = Vector2(0.5, 0.5)
+
+[node name="LevelEnd" parent="." unique_id=1024330424 instance=ExtResource("5_mch4y")]
+position = Vector2(1258, 134)
+
+[node name="AmbianceAlive" type="Sprite2D" parent="." unique_id=868891520]
+z_index = 5
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_bgycq")
+centered = false
+
+[node name="AmbianceDead" type="Sprite2D" parent="." unique_id=939621870]
+visible = false
+z_index = 5
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_wn8pd")
+centered = false
+
+[node name="Boundaries" type="Node2D" parent="." unique_id=1389955250]
+
+[node name="LeftWall" type="StaticBody2D" parent="Boundaries" unique_id=1182372903]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftWall" unique_id=967308542]
+position = Vector2(22.15, 361.5)
+shape = SubResource("RectangleShape2D_nyq0l")
+
+[node name="Floor" type="StaticBody2D" parent="Boundaries" unique_id=806289342]
+position = Vector2(0, 121)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Floor" unique_id=722895797]
+position = Vector2(636.5, 577.35)
+shape = SubResource("RectangleShape2D_e8dmm")
+
+[node name="Ceiling" type="StaticBody2D" parent="Boundaries" unique_id=1996637954]
+position = Vector2(37, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Ceiling" unique_id=814367928]
+position = Vector2(621.5, 22)
+shape = SubResource("RectangleShape2D_f08vh")
+
+[node name="RightWall" type="StaticBody2D" parent="Boundaries" unique_id=1415714981]
+position = Vector2(1247, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall" unique_id=1524727071]
+position = Vector2(8, 464.5)
+shape = SubResource("RectangleShape2D_8k7lt")
+
+[node name="Platform2" parent="." unique_id=1267935751 instance=ExtResource("8_6ggnd")]
+position = Vector2(1144, 277)
+sprite = ExtResource("9_1h71y")
+sprite_scale = 0.1
+
+[node name="Platform3" parent="." unique_id=2011988525 instance=ExtResource("8_6ggnd")]
+position = Vector2(143, 391)
+sprite = ExtResource("9_1h71y")
+sprite_scale = 0.1
+
+[node name="Platform4" parent="." unique_id=2073458665 instance=ExtResource("8_6ggnd")]
+position = Vector2(851, 472)
+sprite = ExtResource("9_1h71y")
+sprite_scale = 0.1
+
+[node name="Button" parent="." unique_id=774278610 instance=ExtResource("10_s3p7u")]
+position = Vector2(143, 347)
+group_id_activation = 1
+activation_time = 5.0
+sprite = ExtResource("11_7ithr")
+sprite_scale = 0.42
+
+[node name="Door" parent="." unique_id=541449114 instance=ExtResource("12_r3ubd")]
+position = Vector2(1143, 142.99994)
+rotation = 1.5707964
+group_id_activation = 1
+easing_mode = 2
+toggled_position = Vector2(1143, -101)
+initial_position = Vector2(1143, 143)
+sprite = ExtResource("13_ddjm6")
+sprite_scale = 3.0

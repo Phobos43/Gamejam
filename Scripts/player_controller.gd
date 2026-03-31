@@ -24,6 +24,7 @@ var last_y_vel = 0
 
 var current_animation := Animations.Idle
 var tick = 0
+var is_facing_right := true
 enum Animations {
 	Idle,
 	Walk,
@@ -95,12 +96,12 @@ func _physics_process(delta: float) -> void:
 	else :
 		switch_to_animation(Animations.Idle)
 	if abs(direction) != direction:
-		for node in ans:
-			node.flip_h = true
+		is_facing_right = true
 	elif direction != 0:
-		for node in ans:
-			node.flip_h = false
-
+		is_facing_right = false
+	for node in ans:
+		node.flip_h = is_facing_right
+	
 	
 	move_and_slide()
 

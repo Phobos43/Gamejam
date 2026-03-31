@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://cmoa8l7lidkv1"]
+
+[ext_resource type="Script" uid="uid://lekwxrbxfqy8" path="res://Scripts/level_manager.gd" id="1_68v1p"]
+[ext_resource type="Texture2D" uid="uid://0qtsu6koqqqo" path="res://Art/Backgrounds/Background alive.png" id="2_konwh"]
+[ext_resource type="Texture2D" uid="uid://bd4vf3xlt4gib" path="res://Art/Backgrounds/Background dead (1).png" id="3_ai8g5"]
+[ext_resource type="PackedScene" uid="uid://djjam0upfakha" path="res://Scenes/player.tscn" id="4_tjygj"]
+[ext_resource type="PackedScene" uid="uid://c8m2222ybblnx" path="res://Scenes/Level_Components/LevelEnd.tscn" id="5_ajd6o"]
+[ext_resource type="Texture2D" uid="uid://jh7ng8qf1bvc" path="res://Art/Backgrounds/Ambiance alive.png" id="6_dur7i"]
+[ext_resource type="Texture2D" uid="uid://hkowr5wmaycs" path="res://Art/Backgrounds/Ambiance dead.png" id="7_lp0h1"]
+[ext_resource type="PackedScene" uid="uid://cha3lljy17bfp" path="res://Scenes/Level_Components/Platform.tscn" id="8_3o4m1"]
+[ext_resource type="Texture2D" uid="uid://dilutspxbo0ga" path="res://Assets/new_atlas_texture.tres" id="9_uxovo"]
+[ext_resource type="PackedScene" uid="uid://1j7jtidv6jtx" path="res://Scenes/Level_Components/Button.tscn" id="10_4psah"]
+[ext_resource type="Texture2D" uid="uid://i8vc3tjx2bld" path="res://Art/Debug Assets/White square.png" id="11_4j28p"]
+[ext_resource type="PackedScene" uid="uid://c7mneuieqaa04" path="res://Scenes/Level_Components/Door.tscn" id="12_7lec8"]
+[ext_resource type="Texture2D" uid="uid://d6f80cfcc1s5" path="res://Art/Debug Assets/cardboard platform.png" id="13_b3eu4"]
+[ext_resource type="PackedScene" uid="uid://b6e5tx7snh4sr" path="res://Scenes/Level_Components/Hazard.tscn" id="14_qupqr"]
+[ext_resource type="Texture2D" uid="uid://d4mmoyspyx2o3" path="res://Assets/hazard2.tres" id="15_68v1p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyq0l"]
+size = Vector2(43.7, 723)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8dmm"]
+size = Vector2(1199, 44.7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f08vh"]
+size = Vector2(1243, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8k7lt"]
+size = Vector2(37.34, 489)
+
+[node name="Level" type="Node2D" unique_id=103853395]
+script = ExtResource("1_68v1p")
+
+[node name="BGAlive" type="Sprite2D" parent="." unique_id=314204558]
+z_index = -5
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_konwh")
+centered = false
+
+[node name="BGDead" type="Sprite2D" parent="." unique_id=1813840342]
+visible = false
+z_index = -5
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_ai8g5")
+centered = false
+
+[node name="Player" parent="." unique_id=2009888759 instance=ExtResource("4_tjygj")]
+position = Vector2(155, 158)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=496639230]
+anchor_mode = 0
+zoom = Vector2(0.5, 0.5)
+
+[node name="LevelEnd" parent="." unique_id=1024330424 instance=ExtResource("5_ajd6o")]
+position = Vector2(1258, 134)
+
+[node name="AmbianceAlive" type="Sprite2D" parent="." unique_id=868891520]
+z_index = 5
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_dur7i")
+centered = false
+
+[node name="AmbianceDead" type="Sprite2D" parent="." unique_id=939621870]
+visible = false
+z_index = 5
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_lp0h1")
+centered = false
+
+[node name="Boundaries" type="Node2D" parent="." unique_id=1389955250]
+
+[node name="LeftWall" type="StaticBody2D" parent="Boundaries" unique_id=1182372903]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftWall" unique_id=967308542]
+position = Vector2(22.15, 361.5)
+shape = SubResource("RectangleShape2D_nyq0l")
+
+[node name="Floor" type="StaticBody2D" parent="Boundaries" unique_id=806289342]
+position = Vector2(0, 121)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Floor" unique_id=722895797]
+position = Vector2(636.5, 577.35)
+shape = SubResource("RectangleShape2D_e8dmm")
+
+[node name="Ceiling" type="StaticBody2D" parent="Boundaries" unique_id=1996637954]
+position = Vector2(37, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Ceiling" unique_id=814367928]
+position = Vector2(621.5, 22)
+shape = SubResource("RectangleShape2D_f08vh")
+
+[node name="RightWall" type="StaticBody2D" parent="Boundaries" unique_id=1415714981]
+position = Vector2(1247, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall" unique_id=1524727071]
+position = Vector2(8, 464.5)
+shape = SubResource("RectangleShape2D_8k7lt")
+
+[node name="Platform2" parent="." unique_id=1267935751 instance=ExtResource("8_3o4m1")]
+position = Vector2(1144, 277)
+sprite = ExtResource("9_uxovo")
+sprite_scale = 0.1
+
+[node name="Platform5" parent="." unique_id=1929983652 instance=ExtResource("8_3o4m1")]
+position = Vector2(968, 275)
+sprite = ExtResource("9_uxovo")
+sprite_scale = 0.1
+
+[node name="Platform4" parent="." unique_id=2073458665 instance=ExtResource("8_3o4m1")]
+position = Vector2(794, 274)
+sprite = ExtResource("9_uxovo")
+sprite_scale = 0.1
+
+[node name="Platform6" parent="." unique_id=147215100 instance=ExtResource("8_3o4m1")]
+position = Vector2(529, 491)
+sprite = ExtResource("9_uxovo")
+sprite_scale = 0.1
+
+[node name="Platform7" parent="." unique_id=1505677482 instance=ExtResource("8_3o4m1")]
+position = Vector2(132, 445)
+sprite = ExtResource("9_uxovo")
+sprite_scale = 0.1
+
+[node name="Button" parent="." unique_id=774278610 instance=ExtResource("10_4psah")]
+position = Vector2(1198, 639)
+group_id_activation = 1
+sprite = ExtResource("11_4j28p")
+sprite_scale = 0.42
+
+[node name="Door" parent="." unique_id=541449114 instance=ExtResource("12_7lec8")]
+position = Vector2(942.99976, 142.99994)
+rotation = 1.5707964
+group_id_activation = 1
+easing_mode = 2
+toggled_position = Vector2(943, -101)
+initial_position = Vector2(943, 143)
+sprite = ExtResource("13_b3eu4")
+sprite_scale = 3.0
+
+[node name="Hazard" parent="." unique_id=2049070350 instance=ExtResource("14_qupqr")]
+position = Vector2(126, 665)
+sprite = ExtResource("15_68v1p")
+sprite_scale = 0.1
