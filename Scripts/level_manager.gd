@@ -17,10 +17,9 @@ var player_init_pos : Vector2
 # --- Class definitions ---
 class PlayerState:
 	var player_pos : Vector2
-	var is_crouched : bool
 	var is_collidable : bool
 	func arrayify() -> Array:
-		return [player_pos, is_crouched, is_collidable]
+		return [player_pos, is_collidable]
 
 class WorldState:
 	var player_state : PlayerState
@@ -55,9 +54,10 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if Global.is_player_alive:
+		$BGAlive.show()
+		$BGDead.hide()
 		var p_state = PlayerState.new()
 		p_state.player_pos = player.global_position
-		p_state.is_crouched = player.is_crouched
 		p_state.is_collidable = false
 		
 		var state = WorldState.new()
@@ -67,6 +67,8 @@ func _physics_process(_delta: float) -> void:
 		alive_playback.append(state)
 		
 	elif alive_playback_frame < len(alive_playback) - 1:
+		$BGAlive.hide()
+		$BGDead.shoe()
 		var state = alive_playback[alive_playback_frame]
 		shadow.set_state(state.player_state.arrayify())
 		

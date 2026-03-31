@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://wpmrvbul21s2"]
 
 [ext_resource type="Script" uid="uid://lekwxrbxfqy8" path="res://Scripts/level_manager.gd" id="1_sboa1"]
-[ext_resource type="Texture2D" uid="uid://dbtp4xhoxvasj" path="res://Art/pixil-frame-0 4.png" id="2_f08vh"]
+[ext_resource type="Texture2D" uid="uid://0qtsu6koqqqo" path="res://Art/Backgrounds/Background alive.png" id="2_nyq0l"]
+[ext_resource type="Texture2D" uid="uid://bd4vf3xlt4gib" path="res://Art/Backgrounds/Background dead (1).png" id="3_e8dmm"]
 [ext_resource type="PackedScene" uid="uid://djjam0upfakha" path="res://Scenes/player.tscn" id="3_xjvhq"]
 [ext_resource type="PackedScene" uid="uid://c8m2222ybblnx" path="res://Scenes/Level_Components/LevelEnd.tscn" id="4_sqp5b"]
 
@@ -15,14 +16,20 @@ size = Vector2(1199, 44.7)
 size = Vector2(1243, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8k7lt"]
-size = Vector2(37.34, 548)
+size = Vector2(37.34, 489)
 
 [node name="Level" type="Node2D" unique_id=103853395]
 script = ExtResource("1_sboa1")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=314204558]
-scale = Vector2(4, 3.999)
-texture = ExtResource("2_f08vh")
+[node name="BGAlive" type="Sprite2D" parent="." unique_id=314204558]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_nyq0l")
+centered = false
+
+[node name="BGDead" type="Sprite2D" parent="." unique_id=1813840342]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_e8dmm")
 centered = false
 
 [node name="Player" parent="." unique_id=2009888759 instance=ExtResource("3_xjvhq")]
@@ -33,7 +40,7 @@ anchor_mode = 0
 zoom = Vector2(0.5, 0.5)
 
 [node name="LevelEnd" parent="." unique_id=1024330424 instance=ExtResource("4_sqp5b")]
-position = Vector2(1251, 105)
+position = Vector2(1258, 134)
 
 [node name="Boundaries" type="Node2D" parent="." unique_id=1389955250]
 
@@ -61,5 +68,5 @@ shape = SubResource("RectangleShape2D_f08vh")
 position = Vector2(1247, 9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall" unique_id=1524727071]
-position = Vector2(8, 435)
+position = Vector2(8, 464.5)
 shape = SubResource("RectangleShape2D_8k7lt")

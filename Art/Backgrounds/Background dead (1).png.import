@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be45vlqxaimhi"
-path="res://.godot/imported/Cat move.png-46ef440137ccd20d89d2af78623c7d78.ctex"
+uid="uid://bd4vf3xlt4gib"
+path="res://.godot/imported/Background dead (1).png-03703a20d77517f4519faa3cc23d2124.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Cat/Cat move.png"
-dest_files=["res://.godot/imported/Cat move.png-46ef440137ccd20d89d2af78623c7d78.ctex"]
+source_file="res://Art/Backgrounds/Background dead (1).png"
+dest_files=["res://.godot/imported/Background dead (1).png-03703a20d77517f4519faa3cc23d2124.ctex"]
 
 [params]
 
