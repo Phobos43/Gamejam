@@ -56,6 +56,8 @@ func _physics_process(_delta: float) -> void:
 	if Global.is_player_alive:
 		$BGAlive.show()
 		$BGDead.hide()
+		$AmbianceAlive.show()
+		$AmbianceDead.hide()
 		var p_state = PlayerState.new()
 		p_state.player_pos = player.global_position
 		p_state.is_collidable = false
@@ -69,6 +71,8 @@ func _physics_process(_delta: float) -> void:
 	elif alive_playback_frame < len(alive_playback) - 1:
 		$BGAlive.hide()
 		$BGDead.shoe()
+		$AmbianceAlive.hide()
+		$AmbianceDead.show()
 		var state = alive_playback[alive_playback_frame]
 		shadow.set_state(state.player_state.arrayify())
 		

@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bd4vf3xlt4gib" path="res://Art/Backgrounds/Background dead (1).png" id="3_e8dmm"]
 [ext_resource type="PackedScene" uid="uid://djjam0upfakha" path="res://Scenes/player.tscn" id="3_xjvhq"]
 [ext_resource type="PackedScene" uid="uid://c8m2222ybblnx" path="res://Scenes/Level_Components/LevelEnd.tscn" id="4_sqp5b"]
+[ext_resource type="Texture2D" uid="uid://jh7ng8qf1bvc" path="res://Art/Backgrounds/Ambiance alive.png" id="6_sqp5b"]
+[ext_resource type="Texture2D" uid="uid://hkowr5wmaycs" path="res://Art/Backgrounds/Ambiance dead.png" id="7_b6r1r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nyq0l"]
 size = Vector2(43.7, 723)
@@ -41,6 +43,19 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="LevelEnd" parent="." unique_id=1024330424 instance=ExtResource("4_sqp5b")]
 position = Vector2(1258, 134)
+
+[node name="AmbianceAlive" type="Sprite2D" parent="." unique_id=868891520]
+position = Vector2(1258, 134)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_sqp5b")
+centered = false
+
+[node name="AmbianceDead" type="Sprite2D" parent="." unique_id=939621870]
+visible = false
+position = Vector2(1258, 134)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_b6r1r")
+centered = false
 
 [node name="Boundaries" type="Node2D" parent="." unique_id=1389955250]
 

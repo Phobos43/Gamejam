@@ -23,7 +23,10 @@ func _ready():
 	music_player = AudioStreamPlayer.new()
 	add_child(music_player)
 	change_music(load("res://Assets/titlescreendemofinal.wav"))
-	
+
+func start_game():
+	change_music(load("res://Assets/main_game.wav"))
+
 
 func change_music(new_music : AudioStreamWAV):
 	music_player.stop()
