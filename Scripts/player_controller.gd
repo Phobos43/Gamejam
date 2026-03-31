@@ -10,8 +10,8 @@ const AIR_SPEED = 200.0
 const JUMP_VELOCITY = -800.0
 const GRAVITY_MULTIPLIER = 2
 
-const STAND_SIZE = 0.8
-const CROUCH_SIZE = 0.5
+const STAND_SIZE = 0.2
+const CROUCH_SIZE = 0.1
 
 
 """The coyotee time in frames"""
@@ -28,6 +28,7 @@ signal player_died
 var is_op = false
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+
 func _ready() -> void:
 	$Area2D.area_entered.connect(body_entered)
 
@@ -43,6 +44,8 @@ func _physics_process(delta: float) -> void:
 		position += movement * 20
 		return
 	# --- OP script end ---
+	
+	is_player_crushed()
 	
 	# Add the gravity.
 	if is_on_floor():
@@ -62,18 +65,19 @@ func _physics_process(delta: float) -> void:
 		coyote_time = 0
 		jump_buffer = 0
 		velocity.y = JUMP_VELOCITY
+		$JumpParticles.emitting = true
 		
 	is_crouched = Input.is_action_pressed("crouch")
 	var direction := Input.get_axis("move_left", "move_right")
 	
 	if is_crouched:
 		velocity.x += CROUCH_ACCELERATION * direction
-		$Sprite2D.scale.y = lerpf($Sprite2D.scale.y, CROUCH_SIZE, 0.5)
+		sprite.scale.y = lerpf(sprite.scale.y, CROUCH_SIZE, 0.5)
 		$CrouchingHB.disabled = false
 		$StandingHB.disabled = true
 	else:
 		velocity.x += GROUND_ACCELERATION * direction
-		$Sprite2D.scale.y = lerpf($Sprite2D.scale.y, STAND_SIZE, 0.5)
+		sprite.scale.y = lerpf(sprite.scale.y, STAND_SIZE, 0.5)
 		$CrouchingHB.disabled = true
 		$StandingHB.disabled = false
 	
@@ -91,9 +95,39 @@ func _physics_process(delta: float) -> void:
 		sprite.play("idle")
 	if abs(direction) != direction:
 		sprite.flip_h = true
-	elif abs(direction) == direction:
+	elif direction != 0:
 		sprite.flip_h = false
+
+	
+	move_and_slide()
+
+		
 	
 func body_entered(body: Node2D):
 	if body.get_parent() is Hazard: 
 		player_died.emit()
+
+func is_player_crushed():
+	# Not proud of this, but I'm running out of time
+	var collisions = {
+		"DownStanding" : false,
+		"UpStanding" : false,
+		"DownCrounching" : false,
+		"UpCrouching" : false,
+		"Right" : false,
+		"Left" : false
+	}
+	
+	for node in get_children():
+		if node is RayCast2D:
+			collisions[node.name] = node.is_colliding()
+	
+	if collisions["Right"] and collisions["Left"]:
+		player_died.emit()
+	else:
+		if is_crouched:
+			if collisions["UpCrouching"] and collisions["DownCrounching"]:
+				player_died.emit()
+		else:
+			if collisions["UpStanding"] and collisions["DownStanding"]:
+				player_died.emit()

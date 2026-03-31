@@ -1,50 +1,185 @@
 [gd_scene format=3 uid="uid://djjam0upfakha"]
 
 [ext_resource type="Script" uid="uid://gic0dffe7lvg" path="res://Scripts/player_controller.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://h0b143c1p55s" path="res://Art/icon.svg" id="2_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://cal4nop2jlx6t" path="res://Art/Cat/pixilart-sprite 12.PNG" id="3_6t5aa"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
-size = Vector2(102, 102)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("3_6t5aa")
+region = Rect2(0, 0, 640, 640)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
-size = Vector2(102, 51)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
+atlas = ExtResource("3_6t5aa")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
+atlas = ExtResource("3_6t5aa")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("3_6t5aa")
+region = Rect2(1920, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
+atlas = ExtResource("3_6t5aa")
+region = Rect2(2560, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ek2"]
+atlas = ExtResource("3_6t5aa")
+region = Rect2(3200, 0, 640, 640)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cvnsp"]
 animations = [{
 "frames": [],
 "loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump_ascend",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump_fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkybt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3wgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8erm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ek2")
+}],
+"loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
+size = Vector2(128, 64)
+
+[sub_resource type="Curve" id="Curve_cvnsp"]
+_data = [Vector2(0, 1), 0.0, -0.40361246, 0, 1, Vector2(0.5705521, 0.76971805), -0.26568356, -0.26568356, 0, 0, Vector2(1, 0.27721745), -1.1468227, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_6t5aa"]
+offsets = PackedFloat32Array(0, 0.99331105)
+colors = PackedColorArray(0.73333335, 0.60784316, 0.47058824, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_6t5aa"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(0.5628834, -82.38945), 0.0, 0.0, 0, 0, Vector2(1, -91.13005), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_vgqql"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_fkybt"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Player" type="CharacterBody2D" unique_id=2009888759]
 script = ExtResource("1_cvnsp")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=406128748]
+position = Vector2(0, 63.999996)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_cvnsp")
+animation = &"walk"
+offset = Vector2(0, -319.99997)
+
 [node name="StandingHB" type="CollisionShape2D" parent="." unique_id=1334334317]
+visible = false
 shape = SubResource("RectangleShape2D_cvnsp")
 
 [node name="CrouchingHB" type="CollisionShape2D" parent="." unique_id=1960907520]
-position = Vector2(0, 25.5)
+visible = false
+position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_vgqql")
 disabled = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1816607338]
-position = Vector2(0, 51)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_6t5aa")
-offset = Vector2(0, -64)
-
 [node name="Area2D" type="Area2D" parent="." unique_id=819955621]
+visible = false
 
 [node name="StandingHB" type="CollisionShape2D" parent="Area2D" unique_id=1865210397]
 shape = SubResource("RectangleShape2D_cvnsp")
 
 [node name="CrouchingHB" type="CollisionShape2D" parent="Area2D" unique_id=1934092437]
-position = Vector2(0, 25.5)
+position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_vgqql")
 disabled = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=406128748]
-scale = Vector2(0.159375, 0.15937501)
-sprite_frames = SubResource("SpriteFrames_cvnsp")
-animation = &"walk"
+[node name="DownStanding" type="RayCast2D" parent="." unique_id=283651494]
+target_position = Vector2(0, 66)
+
+[node name="UpStanding" type="RayCast2D" parent="." unique_id=1506969144]
+target_position = Vector2(0, -66)
+
+[node name="DownCrounching" type="RayCast2D" parent="." unique_id=115342424]
+position = Vector2(0, 32)
+target_position = Vector2(0, 34)
+
+[node name="UpCrouching" type="RayCast2D" parent="." unique_id=538588668]
+position = Vector2(0, 32)
+target_position = Vector2(0, -34)
+
+[node name="Right" type="RayCast2D" parent="." unique_id=1620322031]
+target_position = Vector2(66, 0)
+
+[node name="Left" type="RayCast2D" parent="." unique_id=1615228767]
+target_position = Vector2(-66, 0)
+
+[node name="LandParticles" type="CPUParticles2D" parent="." unique_id=2022139787]
+position = Vector2(0, 64)
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.98
+emission_shape = 3
+emission_rect_extents = Vector2(64, 1)
+direction = Vector2(0, -1)
+initial_velocity_min = 45.16
+initial_velocity_max = 200.0
+scale_amount_min = 3.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_cvnsp")
+color_ramp = SubResource("Gradient_6t5aa")
+
+[node name="JumpParticles" type="CPUParticles2D" parent="." unique_id=413722179]
+position = Vector2(0, 64)
+emitting = false
+amount = 12
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.98
+emission_shape = 3
+emission_rect_extents = Vector2(64, 1)
+direction = Vector2(0, 1)
+spread = 15.64
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.6
+initial_velocity_max = 50.6
+angular_velocity_min = -142.95
+angular_velocity_max = 113.7
+linear_accel_curve = SubResource("Curve_6t5aa")
+scale_amount_min = 5.9
+scale_amount_max = 26.55
+scale_amount_curve = SubResource("Curve_vgqql")
+color_ramp = SubResource("Gradient_fkybt")

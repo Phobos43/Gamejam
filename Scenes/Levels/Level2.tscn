@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://b11w1ukqs5h0v"]
 
-[ext_resource type="Texture2D" uid="uid://h0b143c1p55s" path="res://Art/icon.svg" id="1_4rk67"]
+[ext_resource type="Texture2D" uid="uid://h0b143c1p55s" path="res://Art/Debug Assets/icon.svg" id="1_4rk67"]
 [ext_resource type="Script" uid="uid://lekwxrbxfqy8" path="res://Scripts/level_manager.gd" id="1_lmdar"]
-[ext_resource type="Texture2D" uid="uid://d2otp8rst178n" path="res://Art/Black square.png" id="2_f8qf7"]
+[ext_resource type="Texture2D" uid="uid://d2otp8rst178n" path="res://Art/Debug Assets/Black square.png" id="2_f8qf7"]
 [ext_resource type="PackedScene" uid="uid://djjam0upfakha" path="res://Scenes/player.tscn" id="3_lmdar"]
 [ext_resource type="PackedScene" uid="uid://cha3lljy17bfp" path="res://Scenes/Level_Components/Platform.tscn" id="4_d1swa"]
-[ext_resource type="Texture2D" uid="uid://d6f80cfcc1s5" path="res://Art/cardboard platform.png" id="5_ipaot"]
+[ext_resource type="Texture2D" uid="uid://d6f80cfcc1s5" path="res://Art/Debug Assets/cardboard platform.png" id="5_ipaot"]
 [ext_resource type="PackedScene" uid="uid://c8m2222ybblnx" path="res://Scenes/Level_Components/LevelEnd.tscn" id="6_ao4h1"]
 [ext_resource type="PackedScene" uid="uid://b6e5tx7snh4sr" path="res://Scenes/Level_Components/Hazard.tscn" id="7_f8qf7"]
 

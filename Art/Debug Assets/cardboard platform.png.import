@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2otp8rst178n"
-path="res://.godot/imported/Black square.png-ec251cb4e5f471abb51cb40b2816c616.ctex"
+uid="uid://d6f80cfcc1s5"
+path="res://.godot/imported/cardboard platform.png-1cb023ed6149ac06644abc6175f89b25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Black square.png"
-dest_files=["res://.godot/imported/Black square.png-ec251cb4e5f471abb51cb40b2816c616.ctex"]
+source_file="res://Art/Debug Assets/cardboard platform.png"
+dest_files=["res://.godot/imported/cardboard platform.png-1cb023ed6149ac06644abc6175f89b25.ctex"]
 
 [params]
 

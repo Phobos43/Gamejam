@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be45vlqxaimhi"
-path="res://.godot/imported/Cat move.png-05cd183e12c370b22595e3e0a7d3b1df.ctex"
+uid="uid://i8vc3tjx2bld"
+path="res://.godot/imported/White square.png-c5e9b2c0d6b6b36ba742c4289b970959.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Cat move.png"
-dest_files=["res://.godot/imported/Cat move.png-05cd183e12c370b22595e3e0a7d3b1df.ctex"]
+source_file="res://Art/Debug Assets/White square.png"
+dest_files=["res://.godot/imported/White square.png-c5e9b2c0d6b6b36ba742c4289b970959.ctex"]
 
 [params]
 
