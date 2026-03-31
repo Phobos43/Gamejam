@@ -26,6 +26,7 @@ var jump_buffer = JUMP_BUFFER
 signal player_died
 
 var is_op = false
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	$Area2D.area_entered.connect(body_entered)
@@ -78,7 +79,21 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.x *= GROUND_FRICTION
 	move_and_slide()
-
+	
+	
+	if velocity.y < 0:
+		sprite.play("jump_ascend")
+	elif velocity.y > 0:
+		sprite.play("jump_fall")
+	elif direction != 0:
+		sprite.play("walk")
+	else :
+		sprite.play("idle")
+	if abs(direction) != direction:
+		sprite.flip_h = true
+	elif abs(direction) == direction:
+		sprite.flip_h = false
+	
 func body_entered(body: Node2D):
 	if body.get_parent() is Hazard: 
 		player_died.emit()

@@ -13,16 +13,6 @@ size = Vector2(102, 51)
 animations = [{
 "frames": [],
 "loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
@@ -55,5 +45,6 @@ shape = SubResource("RectangleShape2D_vgqql")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=406128748]
+scale = Vector2(0.159375, 0.15937501)
 sprite_frames = SubResource("SpriteFrames_cvnsp")
-animation = &"idle"
+animation = &"walk"
